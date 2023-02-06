@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="" tests="3" assertions="6" errors="0" warnings="0" failures="1" skipped="0" time="0.803089">
+    <testsuite name="Feature" tests="3" assertions="6" errors="0" warnings="0" failures="1" skipped="0" time="0.803089">
+      <testsuite name="Tests\Feature\Station1\PracticeTest" file="/var/www/tests/Feature/Station1/PracticeTest.php" tests="3" assertions="6" errors="0" warnings="0" failures="1" skipped="0" time="0.803089">
+        <testcase name="testPracticeが表示されるか" class="Tests\Feature\Station1\PracticeTest" classname="Tests.Feature.Station1.PracticeTest" file="/var/www/tests/Feature/Station1/PracticeTest.php" line="12" assertions="2" time="0.753250">
+          <failure type="PHPUnit\Framework\ExpectationFailedException">Tests\Feature\Station1\PracticeTest::testPracticeが表示されるか
+Failed asserting that '\n
+\n
+\n
+    \n
+    \n
+    \n
+    Practice\n
+\n
+\n
+    練習\n
+\n
+\n
+' contains "practice".
+
+/var/www/vendor/laravel/framework/src/Illuminate/Testing/TestResponse.php:642
+/var/www/vendor/laravel/framework/src/Illuminate/Support/helpers.php:302
+/var/www/vendor/laravel/framework/src/Illuminate/Testing/TestResponse.php:644
+/var/www/tests/Feature/Station1/PracticeTest.php:16</failure>
+        </testcase>
+        <testcase name="testPractice2が表示されるか" class="Tests\Feature\Station1\PracticeTest" classname="Tests.Feature.Station1.PracticeTest" file="/var/www/tests/Feature/Station1/PracticeTest.php" line="22" assertions="2" time="0.026510"/>
+        <testcase name="testPractice3が表示されるか" class="Tests\Feature\Station1\PracticeTest" classname="Tests.Feature.Station1.PracticeTest" file="/var/www/tests/Feature/Station1/PracticeTest.php" line="32" assertions="2" time="0.023329"/>
+      </testsuite>
+    </testsuite>
+  </testsuite>
+</testsuites>
