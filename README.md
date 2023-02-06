@@ -20,8 +20,8 @@
 
 ![スクリーンショット 2022-01-18 16 31 52](https://user-images.githubusercontent.com/16362021/149891200-e6da2ca6-662d-4cee-8ec6-816ef6c06b77.png)
 
-9. `docker compose exec php composer install` を打ちましょう
-10. `docker compose exec php php artisan key:generate` を打ちましょう
+9. `docker compose exec php-container composer install` を打ちましょう
+10. `docker compose exec php-container php artisan key:generate` を打ちましょう
 11. http://localhost:8888 を開いて次のような表示になっていれば環境構築は終了です！お疲れさまでした。
 
 ![スクリーンショット 2022-03-18 16 09 00](https://user-images.githubusercontent.com/16362021/158953853-a4105a2c-b042-46af-83cf-e1737cd51912.png)
@@ -139,8 +139,8 @@ scoop install git nodejs-lts yarn
 
 ![スクリーンショット 2022-01-18 16 31 52](https://user-images.githubusercontent.com/16362021/149891200-e6da2ca6-662d-4cee-8ec6-816ef6c06b77.png)
 
-9. `docker compose php composer install` を打ちましょう
-10. `docker compose php php artisan key:generate` を打ちましょう
+9. `docker compose php-container composer install` を打ちましょう
+10. `docker compose php-container php artisan key:generate` を打ちましょう
 11. http://localhost:8888 を開いて次のような表示になっていれば環境構築は終了です！お疲れさまでした。
 
 ![スクリーンショット 2022-03-18 16 09 00](https://user-images.githubusercontent.com/16362021/158953853-a4105a2c-b042-46af-83cf-e1737cd51912.png)
