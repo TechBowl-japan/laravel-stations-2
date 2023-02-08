@@ -14,3 +14,4 @@ yarn-error.log
 /.idea
 /.vscode
 .techtrain/config.toml
+/test-outputs/*.xml
