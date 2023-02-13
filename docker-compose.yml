@@ -6,7 +6,7 @@ volumes:
 services:
     nginx-container:
         image: nginx
-        container_name: "laravel-stations-nginx"
+        container_name: "laravel-stations-2-nginx"
         ports:
             - "${DOCKER_PORT:-8888}:80"
         volumes:
@@ -16,7 +16,7 @@ services:
             - php-container
 
     composer_installation:
-        container_name: laravel-stations-composer-installation
+        container_name: laravel-stations-2-composer-installation
         image: composer
         volumes:
           - ./:/app
@@ -37,7 +37,7 @@ services:
               }
 
     yarn_installation:
-        container_name: laravel-stations-yarn-installation
+        container_name: laravel-stations-2-yarn-installation
         image: node:17.9.0
         volumes:
           - ./:/app
@@ -57,7 +57,7 @@ services:
 
     php-container:
         build: ./server/docker/php
-        container_name: "laravel-stations-php"
+        container_name: "laravel-stations-2-php"
         volumes:
             - ./:/var/www:cached
         depends_on:
@@ -67,7 +67,7 @@ services:
             - .env
 
     mysql-container:
-        container_name: "laravel-stations-mysql"
+        container_name: "laravel-stations-2-mysql"
         build:
           context: ./server/docker/mysql
           dockerfile: Dockerfile
