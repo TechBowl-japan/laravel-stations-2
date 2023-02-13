@@ -7,8 +7,8 @@
 ## Macにおける初期設定
 
 1. Terminal.app を開きます
-2. `git clone git@github.com:SuguruOoki/laravel-stations.git` で自分のPCにこのリポジトリをダウンロードします
-3. `cd laravel-stations` でカレントディレクトリをダウンロードしたディレクトリである `laravel-stations` に移動します。
+2. `git clone git@github.com:SuguruOoki/laravel-stations-2.git` で自分のPCにこのリポジトリをダウンロードします
+3. `cd laravel-stations-2` でカレントディレクトリをダウンロードしたディレクトリである `laravel-stations-2` に移動します。
 4. `cp .env.example .env` を実行し、必要な環境の情報が書かれた `.env` ファイルを作成します。
 5. `docker compose build --no-cache` を実行します。
 6. ↓のような表示が流れていくことを確認してください
