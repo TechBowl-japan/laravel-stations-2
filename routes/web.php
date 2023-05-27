@@ -16,3 +16,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+//1~3
+Route::get('/practice',[App\Http\Controllers\PracticeController::class, 'sample']);
+Route::get('/practice2',[App\Http\Controllers\PracticeController::class, 'sample2']);
+Route::get('/practice3',[App\Http\Controllers\PracticeController::class, 'sample3']);
+//4~5
+Route::get('/getPractice',[App\Http\Controllers\PracticeController::class, 'getPractice']);
+//6
+Route::get('/movies',[App\Http\Controllers\MovieController::class, 'movies']);
