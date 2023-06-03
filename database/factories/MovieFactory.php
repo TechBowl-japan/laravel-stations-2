@@ -15,7 +15,10 @@ class MovieFactory extends Factory
     {
         return [
             'title' => $this->faker->unique()->word,
-            'image_url' => $this->faker->imageUrl()
+            'image_url' => $this->faker->imageUrl(),
+            'published_year'=> 2000,
+            'is_showing'=> true,
+            'description'=> "あああああ",
         ];
     }
 }
