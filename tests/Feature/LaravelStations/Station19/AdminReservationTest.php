@@ -31,7 +31,7 @@ class AdminReservationTest extends TestCase
     public function test管理者予約一覧が表示されているか(): void
     {
         for ($i = 0; $i < 3; $i++) {
-            $movieId = $this->createMovie('タイトル'.$i)->id;
+            $movieId = $this->createMovie('タイトル' . $i)->id;
             Reservation::insert([
                 'date' => new CarbonImmutable('2050-01-01'),
                 'schedule_id' => Schedule::insertGetId([
@@ -52,7 +52,7 @@ class AdminReservationTest extends TestCase
             $response->assertSee($reservation->date);
             $response->assertSee($reservation->name);
             $response->assertSee($reservation->email);
-            $response->assertSee(strtoupper($reservation->sheet->row.$reservation->sheet->column));
+            $response->assertSee(strtoupper($reservation->sheet->row . $reservation->sheet->column));
         }
     }
 
@@ -60,7 +60,7 @@ class AdminReservationTest extends TestCase
     {
         $count = 12;
         for ($i = 0; $i < $count; $i++) {
-            $movieId = $this->createMovie('タイトル'.$i)->id;
+            $movieId = $this->createMovie('タイトル' . $i)->id;
             Reservation::insert([
                 'date' => new CarbonImmutable('2020-01-01'),
                 'schedule_id' => Schedule::insertGetId([
@@ -81,7 +81,7 @@ class AdminReservationTest extends TestCase
             $response->assertDontSee($reservation->date);
             $response->assertDontSee($reservation->name);
             $response->assertDontSee($reservation->email);
-            $response->assertDontSee(strtoupper($reservation->sheet->row.$reservation->sheet->column));
+            $response->assertDontSee(strtoupper($reservation->sheet->row . $reservation->sheet->column));
         }
     }
 
@@ -97,7 +97,7 @@ class AdminReservationTest extends TestCase
         $movieId = $this->createMovie('タイトル')->id;
         $scheduleId = $this->createSchedule($movieId)->id;
 
-        $response = $this->post('/admin/reservations', [
+        $response = $this->post('/admin/reservations/store', [
             'movie_id' => $movieId,
             'schedule_id' => $scheduleId,
             'sheet_id' => Sheet::first()->id,
@@ -111,7 +111,7 @@ class AdminReservationTest extends TestCase
     public function testRequiredバリデーションが設定されているか(): void
     {
         $this->assertReservationCount(0);
-        $response = $this->post('/admin/reservations', [
+        $response = $this->post('/admin/reservations/store', [
             'movie_id' => null,
             'schedule_id' => null,
             'sheet_id' => null,
@@ -140,7 +140,7 @@ class AdminReservationTest extends TestCase
             'email' => 'sample@exmaple.com',
             'name' => 'サンプル太郎',
         ]);
-        $response = $this->get('/admin/reservations/'.$reservationId.'/edit');
+        $response = $this->get('/admin/reservations/' . $reservationId . '/edit');
         $response->assertStatus(200);
     }
 
@@ -155,7 +155,7 @@ class AdminReservationTest extends TestCase
             'email' => 'sample@exmaple.com',
             'name' => 'サンプル太郎',
         ]);
-        $response = $this->patch('/admin/reservations/'.$reservationId, [
+        $response = $this->patch('/admin/reservations/' . $reservationId, [
             'movie_id' => $movieId,
             'schedule_id' => $scheduleId,
             'sheet_id' => 2,
@@ -180,7 +180,7 @@ class AdminReservationTest extends TestCase
             'email' => 'sample@exmaple.com',
             'name' => 'サンプル太郎',
         ]);
-        $response = $this->patch('/admin/reservations/'.$reservationId, [
+        $response = $this->patch('/admin/reservations/' . $reservationId, [
             'movie_id' => null,
             'schedule_id' => null,
             'sheet_id' => null,
@@ -198,7 +198,7 @@ class AdminReservationTest extends TestCase
             'image_url' => 'https://techbowl.co.jp/_nuxt/img/6074f79.png',
             'published_year' => 2000,
             'description' => '概要',
-            'is_showing' => rand(0,1),
+            'is_showing' => rand(0, 1),
             'genre_id' => $this->genreId,
         ]);
         return Movie::find($movieId);
@@ -226,7 +226,7 @@ class AdminReservationTest extends TestCase
             'name' => 'サンプル太郎',
         ]);
         $this->assertReservationCount(1);
-        $response = $this->delete('/admin/reservations/'.$reservationId);
+        $response = $this->delete('/admin/reservations/' . $reservationId);
         $response->assertStatus(302);
         $this->assertReservationCount(0);
     }
