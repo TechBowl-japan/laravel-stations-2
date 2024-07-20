@@ -1,6 +1,8 @@
 <?php
 
+use App\Practice;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PracticeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +18,18 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Route::get('practice', function() {
+//     return response('practice');
+// });
+
+Route::get("/practice", [PracticeController::class,"sample"]);
+Route::get("/practice2", [PracticeController::class, "sample2"]);
+Route::get("/practice3", [PracticeController::class,"sample3"]);
+Route::get('/getPractice', [PracticeController::class, 'getPractice']);
+Route::get('/movies', [PracticeController::class,'movies']);
+
+// Route::get("practice3", function() {
+//     $test = "test";
+//     return response($test);
+// });
