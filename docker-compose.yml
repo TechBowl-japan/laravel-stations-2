@@ -19,7 +19,7 @@ services:
         container_name: laravel-stations-2-composer-installation
         image: composer
         volumes:
-          - ./:/app
+            - ./:/app
         entrypoint:
             - sh
         command:
@@ -32,15 +32,15 @@ services:
             # 3. php artisan key:generateされている(.envファイルのAPP_KEY=のあとの文字がある場合はkey:generateが実行済みということ)
             - -c
             - |
-              [ -f ./.exec-once ] || {
-                cp .env.example .env && composer install --ignore-platform-reqs && php artisan key:generate && touch ./.exec-once
-              }
+                [ -f ./.exec-once ] || {
+                  cp .env.example .env && composer install --ignore-platform-reqs && php artisan key:generate && touch ./.exec-once
+                }
 
     yarn_installation:
         container_name: laravel-stations-2-yarn-installation
         image: node:17.9.0
         volumes:
-          - ./:/app
+            - ./:/app
         entrypoint:
             - sh
         command:
@@ -51,9 +51,9 @@ services:
             # 1. node_modulesディレクトリがある
             - -c
             - |
-              [ -f ./.exec-once-yarn ] || {
-                yarn install && touch ./.exec-once-yarn
-              }
+                [ -f ./.exec-once-yarn ] || {
+                  yarn install && touch ./.exec-once-yarn
+                }
 
     php-container:
         build: ./server/docker/php
@@ -69,8 +69,8 @@ services:
     mysql-container:
         container_name: "laravel-stations-2-mysql"
         build:
-          context: ./server/docker/mysql
-          dockerfile: Dockerfile
+            context: ./server/docker/mysql
+            dockerfile: Dockerfile
         environment:
             MYSQL_ROOT_PASSWORD: ${DOCKER_DB_ROOT_PASS:-dev}
             MYSQL_USER: ${DOCKER_DB_USERNAME:-dev}
@@ -87,7 +87,7 @@ services:
         image: adminer
         restart: always
         ports:
-          - 58080:8080
+            - 58080:8080
         environment:
             ADMINER_DEFAULT_SERVER: mysql-container
             ADMINER_DESIGN: galkaev
