@@ -6,7 +6,7 @@
 
 上記は必ずインストールした上で始めてください。
 
-他の Railway にまだ挑戦したことがない方は、[Railway 準備編](https://www.notion.so/techbowl/Railway-ceba695d5014460e9733c2a46318cdec) より 環境構築や VSCode、Git のインストールをしてください。（GitHub Codespaces 以外の資料をお読みいただき、準備をお願いいたします。）
+他の Railway にまだ挑戦したことがない方は、[Railway 準備編](https://techbowl.notion.site/Railway-ceba695d5014460e9733c2a46318cdec) より 環境構築や VSCode、Git のインストールをしてください。（GitHub Codespaces 以外の資料をお読みいただき、準備をお願いいたします。）
 
 ## MacOS における Docker の環境構築
 
