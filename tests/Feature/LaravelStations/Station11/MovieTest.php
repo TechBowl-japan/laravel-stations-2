@@ -147,4 +147,28 @@ class MovieTest extends TestCase
             ],
         ];
     }
+
+    #[Test]
+    #[Group('station11')]
+    public function test_映画一覧での検索時_ページネーションリンクに検索条件が含まれている(): void
+    {
+        foreach (range(0, 20) as $value) {
+            Movie::insert([
+                'title' => 'title' . $value,
+                'image_url' => 'https://techbowl.co.jp/_nuxt/img/6074f79.png',
+                'published_year' => 2000,
+                'description' => '概要',
+                'is_showing' => true,
+            ]);
+        }
+
+        $response = $this->get('/movies?keyword=title&is_showing=1');
+
+        $matches = [];
+        preg_match('/href="([^"]*page=2[^"]*)"/', $response->getContent(), $matches);
+        $this->assertNotEmpty($matches, 'ページネーションリンクが存在しません');
+        $href = $matches[1];
+        $this->assertStringContainsString('keyword=title', $href);
+        $this->assertStringContainsString('is_showing=1', $href);
+    }
 }
